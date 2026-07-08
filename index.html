@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CabalSpy — Wallet Tracker (tracker + holdings + history + PnL calendar)</title>
+  </head>
+  <body>
+    <div class="topbar">
+      <span class="fixed-url">API <b>api.cabalspy.xyz/v1</b></span>
+      <input id="apikey" placeholder="API key" autocomplete="off" spellcheck="false" />
+      <input id="wallet" placeholder="Wallet address" autocomplete="off" spellcheck="false" />
+      <select id="chain" title="Chain">
+        <option value="SOL" selected>SOL</option>
+        <option value="BNB">BNB</option>
+        <option value="BASE">BASE</option>
+        <option value="ETH">ETH</option>
+      </select>
+      <select id="period" title="Stats period">
+        <option value="6h">6h</option>
+        <option value="1d">1d</option>
+        <option value="7d">7d</option>
+        <option value="30d" selected>30d</option>
+      </select>
+      <button id="go">Load wallet</button>
+      <button id="clear" class="secondary">Clear</button>
+      <span class="status"><span id="dot" class="dot"></span><span id="statustext">idle</span></span>
+    </div>
+
+    <div id="app">
+      <div class="placeholder" id="placeholder">Enter a wallet address and load.</div>
+    </div>
+
+    <!-- PnL calendar modal (opened by the button in the PNL panel) -->
+    <div class="modal-backdrop" id="calendar-modal" hidden>
+      <div class="modal">
+        <div class="modal-head">
+          <span id="calendar-title">PnL Calendar</span>
+          <button class="modal-close" id="calendar-close">✕</button>
+        </div>
+        <div class="modal-body" id="calendar-body"></div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
